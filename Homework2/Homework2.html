@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+#version 300 es
+
+in vec4 aPosition;
+
+uniform mat4 modelViewMatrix;
+uniform mat4 projectionMatrix;
+
+void main()
+{
+    gl_Position = projectionMatrix * modelViewMatrix * aPosition;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+#version 300 es
+
+precision mediump float;
+
+out vec4 fColor;
+
+void main()
+{
+    fColor = vec4(0.57, 0.27, 0.07, 1.0);
+
+}
+</script>
+
+
+<style>
+    html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+
+  /* This centers our sketch horizontally. */
+  justify-content: center;
+
+  /* This centers our sketch vertically. */
+  align-items: center;
+}
+</style>
+
+<script type="text/javascript" src="../Common/InitShaders.js"></script>
+<script type="text/javascript" src="../Common/MVnew.js"></script>
+<script type="text/javascript" src="Homework2.js"></script>
+
+
+
+<body>
+
+  <div class="btn-group" style="width:30%">
+
+    <h1>Animation Control</h1>
+
+    <button id="startAnimation" > Start Animation</button>
+    <button id="pauseAnimation" > Pause Animation</button>
+    <button id="resetAnimation" > Reset Animation</button>
+
+    
+    <br />
+    <br />
+
+    <h1>Camera Control</h1>
+
+    <button id="camera1" style="width:20%"> Camera 1 </button>
+    <button id="camera2" style="width:20%"> Camera 2 </button>
+    
+    <button id="camera3" style="width:20%"> Spinning View </button>
+
+    <br />
+    <br />
+
+    <button id="zoomIn" style="width:30%"> Zoom In</button>
+    <button id="zoomOut" style="width:30%"> Zoom Out</button>
+
+    </div>
+
+<canvas id="gl-canvas" width="1200" height="900" style="border:1px solid #000000;" >
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+</body>
+</html>
